@@ -1,0 +1,20 @@
+
+#include <iostream>
+using namespace std; 
+ void power(int n, int p=1, int s=0  ){
+        if (n==10){
+            cout<<10;
+            return ;
+        }
+        if ( s==n) {
+            cout<<p ;
+            return ;
+        }
+        p=p*n;// yaha pe jab p=n*n likha tha toh p ki value hamesha 4 hi rehti or hamne print ke baad return nahi kiya tha 
+        power(n,p,s+1);
+    }
+int main() {
+   
+    power(10);
+    
+}
