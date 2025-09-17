@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+
+int main() {
+    int arr[]={13,46,24,52,2,21};
+    int sm;
+    
+    int a;
+    
+    for(int i=0;i<6;i++){
+        sm=arr[i];
+        for(int j=i;j<6;j++){
+            
+             if (sm>arr[j]){
+                 sm=arr[j];
+                 a=j;
+                
+                  
+             }
+            
+        
+        }
+        swap(arr[a],arr[i]);
+       
+       
+        
+        
+    
+    }
+    for(int i=0;i<6;i++){
+        cout<<arr[i]<<" ";
+    }
+        
+   
+    
+}
