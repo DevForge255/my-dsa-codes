@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+// Recursive function
+void bubble(int arr[], int n, int j) {
+    // base case: agar array ka size 1 ho gaya
+    if (n == 1) return;
+
+    // inner loop recursion
+    if (j < n - 1) {
+        if (arr[j] > arr[j + 1]) {
+            swap(arr[j], arr[j + 1]);
+        }
+        bubble(arr, n, j + 1);  // inner loop ke liye next index
+    } else {
+        // ek pass khatam ho gaya, ab outer loop ke liye size kam kar do
+        bubble(arr, n - 1, 0);
+    }
+}
+
+int main() {
+    int arr[] = {13, 21, 46, 52, 35};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    bubble(arr, n, 0);
+
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+}
