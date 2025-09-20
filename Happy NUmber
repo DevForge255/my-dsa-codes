@@ -1,0 +1,44 @@
+#include <iostream>
+#include <unordered_set>
+using namespace std;
+
+// Function to calculate the sum of squares of digits
+int sumOfSquares(int n) {
+    int sum = 0;
+    while (n > 0) {
+        int digit = n % 10;
+        sum += digit * digit;
+        n /= 10;
+    }
+    return sum;
+}
+
+// Function to check if a number is happy
+bool isHappy(int n) {
+    unordered_set<int> seenNumbers; // to track numbers we've seen
+
+    while (true) {
+        if (n == 1) {
+            return true; // reached 1, happy number
+        }
+        if (seenNumbers.count(n)) {
+            return false; // cycle detected, not happy
+        }
+        seenNumbers.insert(n);
+        n = sumOfSquares(n); // replace n with sum of squares of its digits
+    }
+}
+
+int main() {
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+
+    if (isHappy(n)) {
+        cout << n << " is a Happy Number." << endl;
+    } else {
+        cout << n << " is not a Happy Number." << endl;
+    }
+
+    return 0;
+}
