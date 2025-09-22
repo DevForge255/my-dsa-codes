@@ -1,0 +1,37 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main(){
+    int a[]={1,1,2,3,4,5};
+    int b[]={2,3,4,4,5,6};
+    vector <int> temp;
+
+    // remove duplicates from a
+    for(int i=0;i<6;i++){
+        if( a[i]==a[i+1]){
+            continue;
+        }
+        else temp.push_back(a[i]);
+    }
+
+    // add elements from b if not already present
+    for(int j=0;j<6;j++){
+        if( b[j]==b[j+1]) continue;
+
+        bool exist=false;
+        for(int x=0;x<temp.size();x++){
+            if(b[j]==temp[x]) {
+                exist=true;
+                break;   // match mila → aur check karne ki zarurat nahi Agar isko break nahi karte toh jab vo 2,3 ko check karta toh vo usse exist ko true karke temp me add karta isilye agar equal ho jaye toh break karke dusre iteration 
+            }
+        }
+
+        if(!exist) temp.push_back(b[j]);
+    }
+
+    // print result
+    for(int n=0;n<temp.size();n++){
+        cout<<temp[n]<<" ";
+    }
+}
